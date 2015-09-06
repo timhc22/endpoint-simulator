@@ -1,5 +1,13 @@
 # endpoint-simulator
 
+
+Test
+curl http://endpoint-simulator.dev
+curl -iH "Accept: application/json" -X POST http://endpoint-simulator.dev
+curl -iH "Accept: application/json" -X DELETE http://endpoint-simulator.dev/1
+
+Set Up
+
     <VirtualHost *:80>
         ServerName endpoint-simulator.dev
         CustomLog "/Users/user/Sites/logs/project.dev-access_log" combined

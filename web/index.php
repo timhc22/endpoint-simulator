@@ -40,7 +40,7 @@ $app->get('/{code}', function (Application $app, $code) use ($items) {
 $app->post('/', function (Application $app, Request $request) {
 	$name = $request->get('name');
 
-	// todo do stuff with data
+	// todo do post
 	$item = [
 		'3' => [
 			'name' => 'item3',
@@ -50,6 +50,10 @@ $app->post('/', function (Application $app, Request $request) {
 	return new Response(json_encode($item), Response::HTTP_CREATED);
 });
 
+$app->delete('/{id}', function (Application $app, Request $request, $id) {
+	// todo do delete
+	return new Response("Deleted {$id}", Response::HTTP_NO_CONTENT);
+});
 
 
 
