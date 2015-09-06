@@ -15,8 +15,8 @@ $items = [
 	],
 ];
 
-$app->get('/', function() use ($toys) {
-	return json_encode($toys);
+$app->get('/', function() use ($items) {
+	return json_encode($items);
 });
 
 $app->get('/{code}', function (Application $app, $code) use ($items) {
