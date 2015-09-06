@@ -1,5 +1,6 @@
 # endpoint-simulator
 
+Based on this: http://sleep-er.co.uk/blog/2014/Creating-a-simple-REST-application-with-Silex-part1/
 
 Test
 curl http://endpoint-simulator.dev
@@ -7,6 +8,9 @@ curl -iH "Accept: application/json" -X POST http://endpoint-simulator.dev
 curl -iH "Accept: application/json" -X DELETE http://endpoint-simulator.dev/1
 
 Set Up
+
+may need to run composer.phar dumpautoload in console.
+
 
     <VirtualHost *:80>
         ServerName endpoint-simulator.dev
