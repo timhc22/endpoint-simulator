@@ -12,6 +12,10 @@ if (php_sapi_name() === 'cli-server' && is_file($filename)) {
 $app = new Application();
 $app['debug'] = true; // todo set to false in production
 
+$app->register(new Silex\Provider\MonologServiceProvider(), array(
+	'monolog.logfile' => __DIR__.'/../logs/development.log',
+));
+
 $items = [];
 
 $app->mount('/', new ItemsController()); // todo fix so can have /items

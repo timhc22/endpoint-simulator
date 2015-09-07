@@ -7,7 +7,6 @@ use Silex\ControllerProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpKernel\Tests\Logger;
 
 /**
  * Class ItemsController
@@ -81,8 +80,8 @@ class ItemsController implements ControllerProviderInterface
 	 */
 	public function getItem(Application $app, $id)
 	{
-		$logger = new Logger();
-		$logger->info('test');
+		$app['monolog']->addDebug('Testing the Monolog logging.');
+
 
 		if (!isset($this->items[$id])) {
 			$app->abort(404, "{$id} was not found.");
