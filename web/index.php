@@ -14,6 +14,6 @@ $app['debug'] = true; // todo set to false in production
 
 $items = [];
 
-$app->mount('/', new ItemsController());
+$app->mount('/', new ItemsController()); // todo fix so can have /items
 
 $app->run();

@@ -7,6 +7,7 @@ use Silex\ControllerProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpKernel\Tests\Logger;
 
 /**
  * Class ItemsController
@@ -43,17 +44,17 @@ class ItemsController implements ControllerProviderInterface
 
 		$factory->get(
 			'/{id}',
-			'App\ItemsController::getCode'
+			'App\ItemsController::getItem'
 		);
 
 		$factory->post(
 			'/',
-			'App\ItemsController::postCode'
+			'App\ItemsController::postItem'
 		);
 
 		$app->delete(
 			'/{id}',
-			'App\ItemsController::deleteCode'
+			'App\ItemsController::deleteItem'
 		);
 
 		return $factory;
@@ -74,12 +75,15 @@ class ItemsController implements ControllerProviderInterface
 	 * Get an item
 	 *
 	 * @param Application $app
-	 * @param $code
+	 * @param $id
 	 *
 	 * @return string
 	 */
 	public function getItem(Application $app, $id)
 	{
+		$logger = new Logger();
+		$logger->info('test');
+
 		if (!isset($this->items[$id])) {
 			$app->abort(404, "{$id} was not found.");
 		}
